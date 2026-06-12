@@ -1,6 +1,6 @@
 # 🧠 MnemOS
 
-### *Remember Less. Achieve More.*
+### *FIND WHAT MATTERS, INSIDE THE COMPLEX.*
 
 <p align="center">
   <img src="logo.jpeg" alt="MnemOS Logo" width="180"/>

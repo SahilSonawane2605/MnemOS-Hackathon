@@ -1,5 +1,6 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-
+export const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://mnemos-hackathon.onrender.com/api';
 /**
  * Generic API request wrapper.
  * Can be pointed to any live local/staging endpoints.

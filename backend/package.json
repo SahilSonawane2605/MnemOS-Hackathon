@@ -1,20 +1,27 @@
 {
   "name": "mnemos",
   "version": "1.0.0",
-  "description": "",
-  "main": "chatbot_test.js",
+  "description": "MnemOS Backend API",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "node chatbot_test.js",
-    "start": "node chatbot_test.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"No tests configured\""
   },
-  "keywords": [],
+  "keywords": [
+    "mnemos",
+    "ai",
+    "learning-twin",
+    "hackathon"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "@google/genai": "^2.8.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.4.2",
+    "express": "^4.21.2",
     "sqlite3": "^6.0.1"
   }
 }

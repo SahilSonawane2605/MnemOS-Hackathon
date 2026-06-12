@@ -28,7 +28,7 @@ function checkAndLogTime() {
         duration_seconds: Math.round(duration / 1000)
       };
 
-      fetch("http://localhost:5000/api/memories", {
+      fetch("https://mnemos-hackathon.onrender.com/api/memories", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"

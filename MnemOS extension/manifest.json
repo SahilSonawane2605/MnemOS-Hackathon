@@ -9,7 +9,7 @@
     "activeTab"
   ],
   "host_permissions": [
-    "http://localhost:5000/*"
+    "https://mnemos-hackathon.onrender.com/*"
   ],
   "background": {
     "service_worker": "background.js"

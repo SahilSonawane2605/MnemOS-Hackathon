@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dashboardButton) {
     dashboardButton.addEventListener("click", () => {
       chrome.tabs.create({
-        url: "http://localhost:5173/"
+        url: "https://mnem-os-hackathon.vercel.app/"
       });
     });
   }

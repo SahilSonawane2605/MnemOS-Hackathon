@@ -108,6 +108,7 @@ Visualize:
 
 ---
 
+## demo video : https://drive.google.com/file/d/1L5Ve9oSZCLF0-neE6uwEPU2YXNzpRcSi/view?usp=sharing
 # 🏗 System Architecture
 
 ```text
@@ -309,6 +310,6 @@ Hackathons • Students • Researchers • Developers • Lifelong Learners
 
 ### MnemOS
 
-*"A Memory Operating System for the AI Age."*
+*"Find what Matters,inside the Complex."*
 
 Built with ❤️ by Team Abhimanyu.

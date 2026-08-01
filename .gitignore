@@ -13,3 +13,6 @@ build/
 database.db
 
 .vscode/
+
+__pycache__/
+*.pyc

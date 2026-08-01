@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ChatMessage, ChatHistoryItem } from '../types/chat';
-import { mockChatMessages, mockChatHistory } from '../mock/chatMock';
 import { sendChatMessage, streamResponse } from '../services/chatService';
 
 interface AssistantContextType {
@@ -19,8 +18,8 @@ interface AssistantContextType {
 const AssistantContext = createContext<AssistantContextType | undefined>(undefined);
 
 export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [messages, setMessages] = useState<ChatMessage[]>(mockChatMessages);
-  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>(mockChatHistory);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isTyping, setIsTyping] = useState<boolean>(false);
   
   // Modals visibility state
@@ -57,16 +56,19 @@ export const AssistantProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       timestamp: 'Just now'
     };
     
-    // Add user message to state
+    // Build the payload cleanly before calling setMessages
+    const chatHistoryPayload = [
+      ...messages,
+      userMsg
+    ].map((m) => ({
+      role: m.sender as "user" | "assistant",
+      content: m.content,
+    }));
+
     setMessages((prev) => [...prev, userMsg]);
     setIsTyping(true);
 
     try {
-      // Collect message history for context
-      const chatHistoryPayload = messages
-        .concat(userMsg)
-        .map((m) => ({ sender: m.sender, content: m.content }));
-
       // Fetch AI response
       const aiResponse = await sendChatMessage(chatHistoryPayload);
       setIsTyping(false);

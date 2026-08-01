@@ -2,19 +2,25 @@ import { request } from './api';
 import type { ChatMessage } from '../types/chat';
 
 /**
- * Sends messages to the chatbot backend
- * POST /chat
+ * Sends messages to the FastAPI backend
+ * POST /api/chat
  */
-export async function sendChatMessage(messages: { sender: 'user' | 'assistant'; content: string }[]): Promise<ChatMessage> {
+export async function sendChatMessage(
+  messages: {
+    role: 'user' | 'assistant';
+    content: string;
+  }[]
+): Promise<ChatMessage> {
   try {
     return await request<ChatMessage>('/chat', 'POST', { messages });
-  }catch (error) {
-  console.error(error);
+  } catch (error) {
+    console.error('Chat API Error:', error);
+    throw error;
+  }
+}
 
-  throw error;
-}}
 /**
- * Simulates a streaming typewriter output for a premium ChatGPT/Claude feel.
+ * Simulates a streaming typewriter output.
  */
 export function streamResponse(
   content: string,
@@ -24,7 +30,7 @@ export function streamResponse(
 ) {
   let index = 0;
   let currentText = '';
-  
+
   const timer = setInterval(() => {
     if (index < content.length) {
       currentText += content[index];
@@ -35,11 +41,6 @@ export function streamResponse(
       onComplete();
     }
   }, speedMs);
-  
+
   return () => clearInterval(timer);
 }
-
-/**
- * Local AI engine logic that reads memory files and responds intelligently.
- * Makes MnemOS feel like a live cognitive twin.
- */
